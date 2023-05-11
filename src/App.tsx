@@ -11,7 +11,7 @@ function App() {
         </div>
         <div>
           <div className="text-xl font-medium text-black">ChitChat</div>
-          <p className="text-slate-500">Nouveau message!</p>
+          <p className="text-slate-500">Nouveau message pour Ntsoa!</p>
         </div>
       </div>
     </div>
