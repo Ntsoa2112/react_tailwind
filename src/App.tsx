@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className='text-gray-600 '>
+    <div className='text-gray-600 font-body'>
       <div className=' dark:bg-black'>
         <div>
           <nav>
@@ -32,8 +32,8 @@ function App() {
         </div>
         <main className='px-16 py-6'>
           <div>
-            <a href="#">Se connecter</a>
-            <a href="#">Créer un compte</a>
+            <a href="#" className='text-primary'>Se connecter</a>
+            <a href="#" className='text-primary'>Créer un compte</a>
           </div>
           <header>
             <h2 className='text-gray-700 text-6xl font-semibold'>
@@ -68,7 +68,7 @@ function App() {
               }
             </div>
             <div>
-              <div>
+              <div className='bg-secondary-100 text-secondary-200'>
                 Plus
               </div>
             </div>
