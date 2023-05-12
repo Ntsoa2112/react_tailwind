@@ -4,8 +4,13 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        "geant": ["16rem", {lineHeight: "1"}]
+      }
+    },
   },
+  darkMode: 'class',
   plugins: [],
 }
 
