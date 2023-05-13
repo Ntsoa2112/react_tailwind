@@ -4,3 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.card {
+  @apply mt-8 bg-white rounded overflow-hidden shadow-md relative;
+}
+
+.badge {
+  @apply bg-secondary-100 text-secondary-200 text-xs rounded-full p-2 font-bold absolute top-0 ml-2 mt-2;
+}
+
+.btn {
+  @apply rounded-full py-2 px-3 uppercase font-bold text-xs cursor-pointer tracking-wider;
+}
