@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -25,25 +25,45 @@ function App() {
       author: 'Recette par Marine',
       duration: '16 min' 
     }
-  ]
+  ];
+
+  const [showMenue, setShowMenue] = useState<string>('hidden md:block');
+  const [screenSize, setScreenSize] = useState(0);
+
+  const handleClickMenue = () => {
+    setShowMenue(showMenue === 'hidden md:block' ? 'md:block' : 'hidden md:block');
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', () => setScreenSize(window.innerWidth));
+  }, []);
+ 
+  useEffect(() => {
+    if (screenSize < 770 && showMenue === 'md:block')
+    setShowMenue('hidden md:block');
+  }, [screenSize]);
   return (
     <div className='text-gray-600'>
       <div className=' dark:bg-black grid md:grid-cols-3'>
         <div className='md:col-span-1 md:flex md:justify-end'>
           <nav className='text-right'>
-            <div>
-              <h1 className='font-bold uppercase p-4 border-b border-gray-300'>
+            <div className='flex justify-between items-center border-b border-gray-300'>
+              <h1 className='font-bold uppercase p-4'>
                 <a href="/" className='hover:text-gray-800'>Mon super Restaurant</a>
               </h1>
+              <div className='px-4 cursor-pointer md:hidden' onClick={() => handleClickMenue()}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+              </div>
             </div>
-            <ul>
+            <ul className={showMenue}>
               <li className='text-gray-700 font-bold'>
                 <a href="#" className='px-4 flex justify-end items-center border-r-4 border-primary'>
                   <span>Accueil</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 mt-1 ml-2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                   </svg>
-
                 </a>
               </li>
               <li>
@@ -68,8 +88,12 @@ function App() {
         </div>
         <main className='px-16 py-6 bg-gray-100 md:col-span-2'>
           <div className='flex justify-center md:justify-end'>
-            <a href="#" className='text-primary btn border-primary border-2 hover:bg-primary hover:text-white'>Se connecter</a>
-            <a href="#" className='text-primary ml-2 btn border-primary border-2 hover:bg-primary hover:text-white'>Créer un compte</a>
+            <a href="#" className='text-primary btn border-primary border-2 hover:bg-primary hover:text-white transition ease-out duration-500'>
+              Se connecter
+            </a>
+            <a href="#" className='text-primary ml-2 btn border-primary border-2 hover:bg-primary hover:text-white transition ease-out duration-500'>
+              Créer un compte
+             </a>
           </div>
           <header>
             <h2 className='text-gray-700 text-6xl font-semibold'>
@@ -118,7 +142,7 @@ function App() {
               }
             </div>
             <div className='flex justify-center'>
-              <div className='bg-secondary-100 text-secondary-200 btn hover:shadow-inner'>
+              <div className='bg-secondary-100 text-secondary-200 btn hover:shadow-inner transform hover:scale-125 hover:bg-opacity-50 transition ease-out duration-300'>
                 Plus
               </div>
             </div>
