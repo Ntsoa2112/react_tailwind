@@ -16,3 +16,18 @@ https://heroicons.com/
     2. Ajoutez l'image
 
 ![1684263568994](image/README/1684263568994.png)
+
+* Couleur de base texte: text-gray-600
+
+
+Finale:
+
+![1684741414033](image/README/1684741414033.png)
+
+![1684741455948](image/README/1684741455948.png)
+
+![1684741488456](image/README/1684741488456.png)
+
+![1684741521059](image/README/1684741521059.png)
+
+![1684741549394](image/README/1684741549394.png)
